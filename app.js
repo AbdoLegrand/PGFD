@@ -5,8 +5,8 @@ const app = express();
 
 // Connect to the database
 mongoose.connect(
-    // "mongodb+srv://22053:22053@cluster0.32cnakv.mongodb.net/"
-    "mongodb://localhost:27017/users"
+    "mongodb+srv://22053:22053@cluster0.32cnakv.mongodb.net/"
+    // "mongodb://localhost:27017/users"
 ).then( () =>{
     console.log("Connected successfully");
 })
