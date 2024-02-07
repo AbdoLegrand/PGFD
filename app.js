@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const app = express(); 
 
+
+const PORT = process.env.PORT || 4000;
+
 // Connect to the database
 mongoose.connect(
     "mongodb+srv://22053:22053@cluster0.32cnakv.mongodb.net/"
@@ -42,6 +45,6 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-app.listen(2000, () =>{
-    console.log("Server is atarting in th port 2000...");
+app.listen(PORT, () =>{
+    console.log(`Server is atarting in th port ${PORT}...`);
 })
