@@ -1,0 +1,55 @@
+<%- include('layout/header') %>
+
+<div class="container">
+  <div class="row my-5">
+    <div class="col-lg-12">
+      <a href="/add" class="btn btn-primary mb-5">Add User</a>
+      <% if (message) { %>
+      <div class="alert alert-dismissible fade show alert-<%= message.type %>">
+        <button
+          class="btn-close"
+          type="button"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+        <strong><%= message.message %></strong>
+      </div>
+      <% } %> 
+      <% if(fichiers != '') { %>
+      <table class="table table-bordered dataTable">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Taille (octets)</th>
+            <th>Type MIME</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% fichiers.forEach(function(fichier) { %>
+          <tr>
+            <td><%= fichier.nom %></td>
+            <td><%= fichier.taille %></td>
+            <td><%= fichier.type %></td>
+            <td>
+              <a href="/edit/<%= fichier._id %>" class="btn btn-primary btn-sm"
+                >Modifier</a
+              >
+              <a
+                href="/delete/<%= fichier._id %>" class="btn btn-danger btn-sm" > Supprimer
+              </a>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% }else { %>
+      <h1 class="text-danger text-secondary mt-5">
+        No file found in the database
+      </h1>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('layout/footer') %>

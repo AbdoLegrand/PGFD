@@ -1,0 +1,22 @@
+<%- include('layout/header') %>
+
+
+<div class="container">
+    <div class="row  mb-5">
+        <div class="col-lg-8  mb-5">
+            <div class="container mt-5">
+                <form action="/add" method="POST" enctype="multipart/form-data">
+                    <div class="form-group mb-4">
+                        <label for="name">Fichier :</label>
+                        <input type="file" class="form-control-file" id="fichier" name="fichier" required>                    
+                    </div>
+                    <button type="submit" class="btn btn-primary  mb-4">Soumettre</button>
+                    <a href="/" type="submit" class="btn btn-secondary mb-4">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('layout/footer') %>
